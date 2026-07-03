@@ -1,4 +1,6 @@
 # scraper_article_scientifique
+## Sur windows
+
 Permet de scraper des articles sur différents site : 
 
 * Frontiers 
@@ -19,7 +21,7 @@ Se mettre dans le projet à l'endroit du fichier scraper.yml.
 Faire la commande pour installer l'environnement conda:  
 
 ```
-conda env create -f scraper.yml
+conda env create -f environment.yml
 ```
 
 Modifier le main.py pour adapter la recherche. (des exemples sont présent dans le fichier)
