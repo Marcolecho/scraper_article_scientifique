@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "C:\Users\marct\miniconda3\envs\scraper\lib\site-packages\botasaurus\browser_decorator.py", line 199, in run_task
+    result = func(driver, data)
+  File "C:\Users\marct\OneDrive\Bureau\stage_labo\env\projet\ML4IL-master\scraper_project\websiteToScrap\scraperPUBSRSC.py", line 22, in run_browser_scraping
+    listTitles, listAll = getArticles(driver, data)
+  File "C:\Users\marct\OneDrive\Bureau\stage_labo\env\projet\ML4IL-master\scraper_project\websiteToScrap\scraperPUBSRSC.py", line 79, in getArticles
+    title = (articleTitle.text).lower()
+AttributeError: 'NoneType' object has no attribute 'text'
