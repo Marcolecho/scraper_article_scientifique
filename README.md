@@ -11,10 +11,16 @@ Permet de scraper des articles sur différents site :
 * SPRINGER
 * WILEY  
 
+<br><br>
 
 ## Condition pour lancer le projet : 
 
-Avoir anaconda
+* Avoir anaconda
+* Avoir google chrome
+
+<br><br>
+
+## Mise en place
 
 Se mettre dans le projet à l'endroit du fichier environment.yml  
 
