@@ -16,7 +16,7 @@ Permet de scraper des articles sur différents site :
 
 Avoir anaconda
 
-Se mettre dans le projet à l'endroit du fichier scraper.yml.
+Se mettre dans le projet à l'endroit du fichier environment.yml  
 
 Faire la commande pour installer l'environnement conda:  
 
