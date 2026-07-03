@@ -27,7 +27,7 @@ Se mettre dans le projet à l'endroit du fichier environment.yml
 Faire la commande pour installer l'environnement conda:  
 
 ```
-conda env create -f environment.yml
+conda env create -f environment.yml n scraper
 ```
 
 Modifier le main.py pour adapter la recherche. (des exemples sont présent dans le fichier)
