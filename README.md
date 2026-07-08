@@ -38,7 +38,7 @@ Pour activer l'environnement conda :
 conda activate scraper
 ```
 
-Pour lancer le projet:
+## Pour lancer le projet:
 ```
 python.exe main.py
 ```
