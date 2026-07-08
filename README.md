@@ -41,3 +41,7 @@ Pour lancer le projet:
 ```
 python.exe main.py
 ```
+
+
+## lien schéma
+https://canva.link/crcfasqalqnfjql 
