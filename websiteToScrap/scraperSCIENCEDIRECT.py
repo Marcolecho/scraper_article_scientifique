@@ -15,7 +15,7 @@ Pour chaque page :
     si pas d'articles dans la page on stop
 """
 @browser(
-    headless=False,           # Obligatoire pour voir l'écran et passer les bots
+    headless=True,           # Obligatoire pour voir l'écran et passer les bots
     block_images_and_css=False, 
     reuse_driver=True         
 )

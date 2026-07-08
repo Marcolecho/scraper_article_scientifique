@@ -7,14 +7,16 @@ from websiteToScrap.scraperSPRINGER import getPDF_SPRINGER
 from websiteToScrap.scraperPUBSACS import getPDF_PUBSACS
 from websiteToScrap.scraperPUBSRSC import getPDF_PUBSRSC
 from searchInPDF import searchInPDF
+from markdown_pdf import MarkdownPdf, Section
 
 download_folder_Web = "C:/Users/marct/Downloads"
 
 
-"""
+
 # Data pour extraction Cellulose (à décommenter et commenter les autres)
 validRecherche = [[" cellulose"], ["dissolution", "dissolute", "dissolutive", "dissolving", "dissolved"],  ["deep eutectic solvent",  "DES"]]
 rapportScraping = "./report/rapportCellulose.md"
+rapportScrapingPDF = "./report/rapportCellulose.pdf"
 listFolders = [
     "D:/dataStageLabo/cellulose/pdf_MDPI_cellulose",
     "D:/dataStageLabo/cellulose/pdf_SCIENCEDIRECT_cellulose",
@@ -24,12 +26,13 @@ listFolders = [
     "D:/dataStageLabo/cellulose/pdf_PUBSACS_cellulose",
     "D:/dataStageLabo/cellulose/pdf_PUBSRSC_cellulose",
     ]
-"""
+
 
 """
 # Data pour extraction chitin (à décommenter et commenter les autres)
 validRecherche = [[" chitin"], ["dissolution", "dissolute", "dissolutive", "dissolving", "dissolved"],  ["deep eutectic solvent",  "DES"]]
 rapportScraping = "./report/rapportChitin.md"
+rapportScrapingPDF = "./report/rapportChitin.pdf"
 listFolders = [
     "D:/dataStageLabo/chitin/pdf_MDPI_chitin",
     "D:/dataStageLabo/chitin/pdf_SCIENCEDIRECT_chitin",
@@ -40,10 +43,11 @@ listFolders = [
     "D:/dataStageLabo/chitin/pdf_PUBSRSC_chitin",
     ]
 """
-
+"""
 # Data pour extraction Silk (à décommenter et commenter les autres)
 validRecherche = [[" silk"], ["dissolution", "dissolute", "dissolutive", "dissolving", "dissolved"],  ["deep eutectic solvent",  "DES"]]
 rapportScraping = "./report/rapportSilk.md"
+rapportScrapingPDF = "./report/rapportSilk.pdf"
 listFolders = [
     "D:/dataStageLabo/silk/pdf_MDPI_silk",
     "D:/dataStageLabo/silk/pdf_SCIENCEDIRECT_silk",
@@ -53,7 +57,7 @@ listFolders = [
     "D:/dataStageLabo/silk/pdf_PUBSACS_silk",
     "D:/dataStageLabo/silk/pdf_PUBSRSC_silk",
     ]
-
+"""
 
 # Récupération des premiers mots de pour chaque groupe de mot
 motRecherche = []
@@ -89,7 +93,7 @@ On nettoie le fichier de rapport et on lance la recherche dans les pdf pour réc
 """
 if __name__ == "__main__":
     globalTitles = []
-    
+    """
     print("==============================SCIENCEDIRECT==============================")
     titles = getPDF_SCIENCEDIRECT(download_folder_Web, download_folder_SCIENCEDIRECT, motRecherche, validRecherche)    
     globalTitles.extend(titles)
@@ -113,16 +117,22 @@ if __name__ == "__main__":
     print("==============================SPRINGER==============================")
     titles = getPDF_SPRINGER(download_folder_Web, download_folder_SPRINGER, motRecherche, validRecherche)    
     globalTitles.extend(titles)
-
+    
     print("==============================MDPI==============================")
-    titles = getPDF_MDPI(download_folder_MDPI, motRecherche, validRecherche)                                 
+    titles = getPDF_MDPI(download_folder_Web, download_folder_MDPI, motRecherche, validRecherche)                                 
     globalTitles.extend(titles)
     
     print(globalTitles)
-
-
+    """
+    
     # pour ne faire que le scrapping, commenter les lignes suivantes, elles servent à l'exploitation des pdfs
     with open(rapportScraping, "w", encoding="utf-8") as fichier:
         fichier.write("")
 
     searchInPDF(listFolders, listRemover, listWord, rapportScraping)
+    
+    pdf = MarkdownPdf()
+    with open(rapportScraping, "r", encoding="utf-8") as f:
+        contenu_md = f.read()
+    pdf.add_section(Section(contenu_md))
+    pdf.save(rapportScrapingPDF)
